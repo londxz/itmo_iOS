@@ -10,23 +10,22 @@ import SwiftUI
 struct AppRootTabView: View {
     @ObservedObject var coordinator: AppCoordinator
     let container: AppContainer
+    private let screenFactory: ScreenFactory
+    
+    init(coordinator: AppCoordinator, container: AppContainer) {
+        self.coordinator = coordinator
+        self.container = container
+        self.screenFactory = AppScreenFactory(container: container)
+    }
     
     var body: some View {
         TabView(selection: $coordinator.selectedTab) {
             
-            // Новости
-            NavigationStack {
-                VStack(spacing: 12) {
-                    Image(systemName: "newspaper.fill")
-                        .font(.system(size: 48))
-                        .foregroundStyle(.blue)
-                    Text("Здесь будет лента новостей")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
-                }
-                .navigationTitle("Новости")
-                .navigationBarTitleDisplayMode(.inline)
-            }
+            // Пример новостей с навигацией
+            NewsCoordinatorView(
+                coordinator: coordinator.newsCoordinator,
+                screenFactory: screenFactory
+            )
             .tabItem {
                 Label("Новости", systemImage: "newspaper")
             }

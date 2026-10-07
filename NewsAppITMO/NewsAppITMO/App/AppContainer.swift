@@ -8,4 +8,10 @@
 import SwiftUI
 
 @MainActor
-final class AppContainer {}
+final class AppContainer {
+    let httpClient: HTTPClient
+    
+    init(httpClient: HTTPClient = URLSessionHTTPClient()) {
+        self.httpClient = httpClient
+    }
+}

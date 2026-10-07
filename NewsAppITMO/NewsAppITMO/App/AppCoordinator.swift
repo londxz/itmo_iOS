@@ -18,4 +18,6 @@ enum AppTab: Hashable, Sendable {
 @MainActor
 final class AppCoordinator: ObservableObject {
    @Published var selectedTab: AppTab = .news
+    
+    let newsCoordinator = NewsCoordinator()
 }
