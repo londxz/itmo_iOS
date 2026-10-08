@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct TagDTO: Decodable, Sendable {
+struct TagDTO: Decodable, Sendable {
     let id: Int
     let name: String
 }

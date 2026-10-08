@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 
-nonisolated protocol NewsRepository: Sendable {
+protocol NewsRepository: Sendable {
     func fetchDayTopPost() async throws -> PostModel?
     func fetchFreshPosts(page: Int, perPage: Int) async throws -> [PostModel]
 }
@@ -22,16 +22,16 @@ actor NewsRepositoryImpl: NewsRepository {
     }
 
     func fetchDayTopPost() async throws -> PostModel? {
-        logger.debug("▶︎ новость дня: старт, main thread = \(Thread.isMainThread)")
+        logger.debug("dayTop request started, isMainThread: \(Thread.isMainThread)")
         let dtos: [ArticleDTO] = try await client.send(NewsEndpoint.dayTop)
-        logger.debug("✓ новость дня: ответ получен")
+        logger.debug("dayTop request finished")
         return dtos.first.map(ArticleMapper.toDomain)
     }
 
     func fetchFreshPosts(page: Int, perPage: Int) async throws -> [PostModel] {
-        logger.debug("▶︎ свежие новости (стр. \(page)): старт, main thread = \(Thread.isMainThread)")
+        logger.debug("fresh page \(page) request started, isMainThread: \(Thread.isMainThread)")
         let dtos: [ArticleDTO] = try await client.send(NewsEndpoint.fresh(page: page, perPage: perPage))
-        logger.debug("✓ свежие новости (стр. \(page)): ответ получен, \(dtos.count) шт.")
+        logger.debug("fresh page \(page) request finished, count: \(dtos.count)")
         return dtos.map(ArticleMapper.toDomain)
     }
 }

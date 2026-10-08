@@ -5,7 +5,7 @@
 //  Created by Родион Холодов on 07.10.2026.
 //
 
-nonisolated enum APIPath {
+enum APIPath {
     static let articles = "articles"
     static let users = "users"
     static let comments = "comments"

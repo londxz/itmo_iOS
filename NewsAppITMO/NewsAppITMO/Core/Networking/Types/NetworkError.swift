@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated enum NetworkError: Error, Equatable, Sendable {
+enum NetworkError: Error, Equatable, Sendable {
     case invalidURL
     case transport(URLError.Code)
     case unauthorized

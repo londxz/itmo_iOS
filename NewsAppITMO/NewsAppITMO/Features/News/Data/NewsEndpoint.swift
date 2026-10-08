@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated enum NewsEndpoint: Endpoint {
+enum NewsEndpoint: Endpoint {
     case dayTop
     case fresh(page: Int, perPage: Int)
 

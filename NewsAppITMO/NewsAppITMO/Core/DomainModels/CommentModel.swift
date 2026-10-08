@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct CommentModel: Identifiable, Hashable, Sendable {
+struct CommentModel: Identifiable, Hashable, Sendable {
     let id: String
     let authorName: String
     let authorAvatarURL: URL?

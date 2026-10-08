@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct CommentUserDTO: Decodable, Sendable {
+struct CommentUserDTO: Decodable, Sendable {
     let name: String
     let profileImage90: String?
 
@@ -17,7 +17,7 @@ nonisolated struct CommentUserDTO: Decodable, Sendable {
     }
 }
 
-nonisolated struct CommentDTO: Decodable, Sendable {
+struct CommentDTO: Decodable, Sendable {
     let idCode: String
     let createdAt: Date
     let bodyHtml: String

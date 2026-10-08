@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated enum ArticleMapper {
+enum ArticleMapper {
     static func toDomain(_ dto: ArticleDTO) -> PostModel {
         let author = AuthorModel(
             id: "\(dto.user.userId ?? 0)",

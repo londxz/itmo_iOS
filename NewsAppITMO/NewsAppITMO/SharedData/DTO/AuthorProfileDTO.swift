@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct AuthorProfileDTO: Decodable, Sendable {
+struct AuthorProfileDTO: Decodable, Sendable {
     let id: Int
     let username: String
     let name: String

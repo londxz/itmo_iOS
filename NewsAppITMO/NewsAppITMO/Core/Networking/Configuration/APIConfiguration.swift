@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct APIConfiguration: Sendable {
+struct APIConfiguration: Sendable {
     let baseURL: URL
 
     static let devTo = APIConfiguration(

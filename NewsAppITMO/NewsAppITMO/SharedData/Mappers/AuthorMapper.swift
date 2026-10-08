@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated enum AuthorMapper {
+enum AuthorMapper {
     static func toDomain(_ dto: AuthorProfileDTO) -> AuthorModel {
         AuthorModel(
             id: "\(dto.id)",

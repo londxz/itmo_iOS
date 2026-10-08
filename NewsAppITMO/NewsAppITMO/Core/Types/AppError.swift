@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated enum AppError: Error, Equatable, Sendable {
+enum AppError: Error, Equatable, Sendable {
     case networkUnavailable
     case serverUnavailable
     case invalidData
@@ -15,7 +15,7 @@ nonisolated enum AppError: Error, Equatable, Sendable {
     case unknown(String)
 }
 
-nonisolated extension AppError {
+extension AppError {
     init(_ error: any Error) {
         switch error as? NetworkError {
         case .transport:

@@ -7,6 +7,6 @@
 
 import Foundation
 
-nonisolated protocol HTTPClient: Sendable {
+protocol HTTPClient: Sendable {
     func send<T: Decodable & Sendable>(_ endpoint: any Endpoint) async throws -> T
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-nonisolated struct PostModel: Identifiable, Hashable, Sendable, Codable {
+struct PostModel: Identifiable, Hashable, Sendable, Codable {
     let id: String
     let title: String
     let summary: String
