@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticleDTO: Decodable, Sendable {
+nonisolated struct ArticleDTO: Decodable, Sendable {
     let id: Int
     let title: String
     let description: String?
@@ -34,7 +34,7 @@ struct ArticleDTO: Decodable, Sendable {
     }
 }
 
-struct UserDTO: Decodable, Sendable {
+nonisolated struct UserDTO: Decodable, Sendable {
     let userId: Int?
     let name: String
     let username: String

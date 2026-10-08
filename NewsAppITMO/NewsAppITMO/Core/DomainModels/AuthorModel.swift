@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AuthorModel: Identifiable, Hashable, Sendable, Codable {
+nonisolated struct AuthorModel: Identifiable, Hashable, Sendable, Codable {
     let id: String
     let username: String
     let name: String

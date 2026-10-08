@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TagMapper {
+nonisolated enum TagMapper {
     static func toDomain(_ dto: TagDTO) -> BlogTagModel {
         BlogTagModel(
             id: "\(dto.id)",

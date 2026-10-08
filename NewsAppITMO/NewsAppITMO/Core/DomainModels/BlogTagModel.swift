@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BlogTagModel: Identifiable, Hashable, Sendable {
+nonisolated struct BlogTagModel: Identifiable, Hashable, Sendable {
     let id: String
     let name: String
 

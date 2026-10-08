@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol Endpoint: Sendable {
+nonisolated protocol Endpoint: Sendable {
     var path: String { get }
     var method: HTTPMethod { get }
     var headers: [String: String] { get }
     var queryItems: [URLQueryItem] { get }
 }
 
-extension Endpoint {
+nonisolated extension Endpoint {
     var method: HTTPMethod { .get }
     var headers: [String: String] { [:] }
     var queryItems: [URLQueryItem] { [] }

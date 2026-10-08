@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CommentMapper {
+nonisolated enum CommentMapper {
     static func toDomain(_ dto: CommentDTO) -> CommentModel {
         let cleanText = dto.bodyHtml
             .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)

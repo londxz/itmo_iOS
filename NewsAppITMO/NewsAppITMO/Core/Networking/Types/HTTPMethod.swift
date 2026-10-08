@@ -5,7 +5,7 @@
 //  Created by Родион Холодов on 07.10.2026.
 //
 
-enum HTTPMethod: String, Sendable {
+nonisolated enum HTTPMethod: String, Sendable {
     case get = "GET"
     case post = "POST"
 }
