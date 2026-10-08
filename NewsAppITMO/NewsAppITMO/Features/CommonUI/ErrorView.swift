@@ -38,7 +38,7 @@ struct ErrorView: View {
         case .serverUnavailable: "Попробуйте чуть позже"
         case .invalidData: "Не удалось прочитать ответ сервера"
         case .notFound: "Запрошенные данные не найдены"
-        case .unknown(let description): description
+        case .unknown: "Попробуйте ещё раз"
         }
     }
 

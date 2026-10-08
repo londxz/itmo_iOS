@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import OSLog
 
 @MainActor
 final class NewsViewModel: ObservableObject {
@@ -16,6 +17,7 @@ final class NewsViewModel: ObservableObject {
 
     private let repository: any NewsRepository
     private weak var router: (any NewsRouting)?
+    private let logger = Logger(subsystem: "NewsAppITMO", category: "NewsViewModel")
 
     private var initialLoadTask: Task<Void, Never>?
     private var paginationTask: Task<Void, Never>?
@@ -80,6 +82,7 @@ final class NewsViewModel: ObservableObject {
             state = newState
         } catch {
             guard !Task.isCancelled else { return }
+            logger.error("first page load failed: \(String(describing: error), privacy: .public)")
             if state.isEmpty {
                 state.initialLoad = .failed(AppError(error))
             }
@@ -123,6 +126,7 @@ final class NewsViewModel: ObservableObject {
             state = newState
         } catch {
             guard !Task.isCancelled else { return }
+            logger.error("page \(nextPage) load failed: \(String(describing: error), privacy: .public)")
             state.paginationLoad = .failed(AppError(error))
         }
     }
