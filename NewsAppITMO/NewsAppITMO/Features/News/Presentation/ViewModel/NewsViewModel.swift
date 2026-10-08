@@ -84,10 +84,12 @@ final class NewsViewModel: ObservableObject {
                 state.initialLoad = .failed(AppError(error))
             }
         }
+        initialLoadTask = nil
     }
 
     private func startPagination() -> Task<Void, Never>? {
         guard state.initialLoad == .loaded,
+              initialLoadTask == nil,
               state.paginationLoad != .loading,
               state.canLoadMore
         else { return nil }
@@ -127,6 +129,7 @@ final class NewsViewModel: ObservableObject {
 
     private func cancelLoading() {
         initialLoadTask?.cancel()
+        initialLoadTask = nil
         paginationTask?.cancel()
         if state.initialLoad == .loading {
             state.initialLoad = .idle
